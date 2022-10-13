@@ -12,7 +12,8 @@
 .edificios,
 .admin,
 .propietario,
-.inquilino {
+.inquilino,
+.configuracion {
     display: flex;
     height: 90vh;
     align-items: center;

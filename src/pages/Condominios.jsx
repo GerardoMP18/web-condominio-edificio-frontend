@@ -1,11 +1,25 @@
-import React from 'react';
+import React from "react";
 
-function Condominios() {
+export function Condominios() {
   return (
-    <div className='condominios'>
+    <div className="condominios">
       <h1>Condominios</h1>
     </div>
-  )
+  );
 }
 
-export default Condominios
+export function C1() {
+  return (
+    <div className="condominios">
+      <h1>Condominios/sub1</h1>
+    </div>
+  );
+}
+
+export function C2() {
+  return (
+    <div className="condominios">
+      <h1>Condominios/sub2</h1>
+    </div>
+  );
+}
