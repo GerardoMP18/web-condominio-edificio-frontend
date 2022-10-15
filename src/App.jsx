@@ -9,10 +9,16 @@ import { Admin, A1, A2 } from "./pages/Admin";
 import { Propietario, P1, P2 } from "./pages/Propietario";
 import { Inquilino, I1, I2 } from "./pages/Inquilino";
 import { Configuracion } from "./pages/Configuracion";
+import { Login } from "./login/Login";
 
 export function App() {
   return (
     <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} /> 
+        </Routes>
+      </BrowserRouter>
       <BrowserRouter>
         <Sidebar />
         <Routes>
