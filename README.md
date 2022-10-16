@@ -1,19 +1,19 @@
 # Commands
 
-# Command to create app with vite
+## Command to create app with vite
 - npm create vite@latest
 
-# To install npm
+## To install npm
 - npm install
 
-# To run vite
-- npm run dev
-
-# To install react router dom
+## To install react router dom
 - npm install react-router-dom@6
 
-# To install styled components
+## To install styled components
 - npm i styled-components
 
-# To install react icons
+## To install react icons
 - npm i react-icons
+
+## To run vite
+- npm run dev
