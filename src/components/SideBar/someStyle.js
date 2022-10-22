@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 /* file Side Bar */
 export const Nav = styled.div`
   background-color: #060b26;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -22,7 +22,7 @@ export const NavIcon = styled(Link)`
 
 export const SidebarNav = styled.nav`
   background-image: linear-gradient(#5E5DEF, #98D7FF);
-  width: 225px;
+  width: 200px;
   height: 100vh;
   display: flex;
   justify-content: center;
