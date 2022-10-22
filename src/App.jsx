@@ -2,20 +2,19 @@ import "./App.css";
 import React from "react";
 import Sidebar from "./components/SideBar/Sidebar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Condominios, C1, C2 } from "./pages/Condominios";
-import { Edificios, E1, E2 } from "./pages/Edificios";
-import { Admin, A1, A2 } from "./pages/Admin";
-import { Propietario, P1, P2 } from "./pages/Propietario";
-import { Inquilino, I1, I2 } from "./pages/Inquilino";
-import { Configuracion } from "./pages/Configuracion";
-
+import { Home } from "./pages/Home/Home";
+import { Condominios, C1, C2 } from "./pages/Condominios/Condominios";
+import { Edificios, E1, E2 } from "./pages/Edificios/Edificios";
+import { Admin, A1, A2 } from "./pages/Admin/Admin";
+import { Propietario, P1, P2 } from "./pages/Propietario/Propietario";
+import { Inquilino, I1, I2 } from "./pages/Inquilino/Inquilino";
+import { Configuracion } from "./pages/Configuracion/Configuracion";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Sidebar />
+        <Sidebar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/condominios" element={<Condominios />} />
