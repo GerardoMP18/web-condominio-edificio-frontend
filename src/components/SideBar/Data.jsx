@@ -108,6 +108,13 @@ const Data = [
     ],
   },
   {
+    title: "Carga Masiva",
+    path: "/cargamasiva",
+    icon: <AiIcons.AiFillHome />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+  },
+  {
     title: "Configuracion",
     path: "/configuracion",
     icon: <AiIcons.AiFillHome />,
