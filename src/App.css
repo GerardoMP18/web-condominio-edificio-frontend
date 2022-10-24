@@ -13,10 +13,21 @@
 .admin,
 .propietario,
 .inquilino,
+.cargamasiva,
 .configuracion {
     display: flex;
     height: 90vh;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
+}
+
+.container{
+    display: flex;
+    margin-top:10px;
+  }
+  
+.link{
+    text-decoration: none;
+    color: inherit;
 }
