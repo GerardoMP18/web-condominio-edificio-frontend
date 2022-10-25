@@ -1,5 +1,4 @@
 import React from "react";
-import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
@@ -20,12 +19,12 @@ const Data = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
-        title: "C1",
+        title: "Crear",
         path: "/condominios/c1",
         icon: <AiIcons.AiFillHome />,
       },
       {
-        title: "C2",
+        title: "Listar",
         path: "/condominios/c2",
         icon: <AiIcons.AiFillHome />,
       },
@@ -39,32 +38,13 @@ const Data = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
-        title: "E1",
+        title: "Crear",
         path: "/edificios/e1",
         icon: <AiIcons.AiFillHome />,
       },
       {
-        title: "E2",
+        title: "Listar",
         path: "/edificios/e2",
-        icon: <AiIcons.AiFillHome />,
-      },
-    ],
-  },
-  {
-    title: "Admin",
-    path: "/admin",
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-      {
-        title: "A1",
-        path: "/admin/a1",
-        icon: <AiIcons.AiFillHome />,
-      },
-      {
-        title: "A2",
-        path: "/admin/a2",
         icon: <AiIcons.AiFillHome />,
       },
     ],
@@ -77,12 +57,12 @@ const Data = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
-        title: "P1",
+        title: "Crear",
         path: "/propietario/p1",
         icon: <AiIcons.AiFillHome />,
       },
       {
-        title: "P2",
+        title: "Listar",
         path: "/propietario/p2",
         icon: <AiIcons.AiFillHome />,
       },
@@ -96,13 +76,13 @@ const Data = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
-        title: "I1",
-        path: "/inquilino/sub1",
+        title: "Crear",
+        path: "/inquilino/I1",
         icon: <AiIcons.AiFillHome />,
       },
       {
-        title: "I2",
-        path: "/inquilino/sub2",
+        title: "Listar",
+        path: "/inquilino/I2",
         icon: <AiIcons.AiFillHome />,
       },
     ],

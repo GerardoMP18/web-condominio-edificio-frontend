@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const StylesNavigation = styled.div`
   .pagination {
@@ -20,38 +20,39 @@ export const StylesNavigation = styled.div`
     background-color: rgba(225, 223, 252, 0.613);
   }
 
-  .page-num:hover{
-    background-color: #1876F2;
+  .page-num:hover {
+    background-color: #1876f2;
     color: #f4f6f9;
   }
 
   .active {
-    background-color: #1876F2;
+    background-color: #1876f2;
   }
 `;
 
 export const v = {
-    borderRadius: "8px",
+  borderRadius: "8px",
 
-    mdSpacing: "16px",
-    smSpacing: "8px",
-    lgSpacing: "32px",
+  mdSpacing: "16px",
+  smSpacing: "8px",
+  lgSpacing: "32px",
 
-    sm: "37.5em",
-    md: "48em",
-    lg: "64em",
+  sm: "37.5em",
+  md: "48em",
+  lg: "64em",
 
-    boxShadow: "0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11), 0 8px 16px rgba(0, 0, 0, 0.11)"
-}
+  boxShadow:
+    "0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11), 0 8px 16px rgba(0, 0, 0, 0.11)",
+};
 
 export const lightTheme = {
-    white: "rgb(255, 255, 255)",
-    bg: "rgb(245, 245, 245)",
-    bg2: "rgb(237, 237, 237)",
-    bg3: "rgb(214, 214, 214)",
-    text: "rgb(33, 33, 33)",
-    primary: "rgb(224, 132, 209)",
-}
+  white: "rgb(255, 255, 255)",
+  bg: "rgb(245, 245, 245)",
+  bg2: "rgb(237, 237, 237)",
+  bg3: "rgb(214, 214, 214)",
+  text: "rgb(33, 33, 33)",
+  primary: "rgb(224, 132, 209)",
+};
 
 export const STable = styled.table`
   margin-top: 10px;

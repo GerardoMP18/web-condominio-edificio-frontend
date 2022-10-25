@@ -2,15 +2,17 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 
-/* file Side Bar */
+/* Navbar */
 export const Nav = styled.div`
   background-color: #060b26;
+  background: #6367F0;
   height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 `;
 
+/* Nav Icon */
 export const NavIcon = styled(Link)`
   margin-left: 2rem;
   font-size: 2rem;
@@ -20,9 +22,10 @@ export const NavIcon = styled(Link)`
   align-items: center;
 `;
 
+/* Sidebar */
 export const SidebarNav = styled.nav`
   background-image: linear-gradient(#5E5DEF, #98D7FF);
-  width: 200px;
+  width: 225px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -38,8 +41,7 @@ export const SidebarWrap = styled.div`
 `;
 
 
-/* file SubMenu*/
-
+/* Submenu*/
 export const SidebarLink = styled(Link)`
   display: flex;
   color: #f7faff;
@@ -58,10 +60,12 @@ export const SidebarLink = styled(Link)`
   }
 `;
 
+/* Submenu Options*/
 export const SidebarLabel = styled.span`
   margin-left: 16px;
 `;
 
+/* Submenu Suboptions*/
 export const DropdownLink = styled(Link)`
   height: 60px;
   padding-left: 3rem;
