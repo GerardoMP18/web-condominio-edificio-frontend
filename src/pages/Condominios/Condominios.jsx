@@ -1,12 +1,5 @@
-import React from "react";
-
-export function Condominios() {
-  return (
-    <div className="condominios">
-      <h1>Condominios0</h1>
-    </div>
-  );
-}
+import React, { useState, useEffect } from "react";
+import TableCondominiums from "../../components/Tables/TableCondominiums/TableCondominiums";
 
 export function C1() {
   return (
@@ -17,9 +10,21 @@ export function C1() {
 }
 
 export function C2() {
+  const [condominiums, setCondominiums] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const response = await fetch("http://127.0.0.1:5000/api/condominiums");
+    const data = await response.json();
+    setCondominiums(data);
+  };
+
   return (
-    <div className="condominios">
-      <h1>Condominios/sub22</h1>
-    </div>
+    <>
+      <TableCondominiums data={condominiums} />
+    </>
   );
 }

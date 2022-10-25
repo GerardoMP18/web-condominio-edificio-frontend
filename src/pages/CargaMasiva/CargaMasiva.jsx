@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Table from '../../components/Table/Table';
+import TableCargaMasiva from '../../components/Tables/TableCargaMasiva/TableCargaMasiva';
 import { ThemeProvider } from "styled-components";
-import { lightTheme } from "../../components/Table/someStyle";
+import { lightTheme } from "../../components/Tables/TableCargaMasiva/someStyle";
 import { FeaturedContainer, FeaturedItem, FeaturedTitle } from "./someStyle";
 import { UserForm, CargaItem, Button2 } from "./someStyle";
 import { ServiceUploadFile } from "../../service/CargaMasiva/ServiceUploadFile";
@@ -84,7 +84,7 @@ export function CargaMasiva() {
 					{console.log(excelData)}
 					{excelData === null && <>Ningún archivo seleccionado</>}
 					{excelData !== null && (
-						<Table data={excelData} />
+						<TableCargaMasiva data={excelData} />
 					)}
 				</ThemeProvider>
 			</FeaturedItem>
