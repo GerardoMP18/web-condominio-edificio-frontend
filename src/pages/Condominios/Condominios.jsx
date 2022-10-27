@@ -16,6 +16,8 @@ export function CrearCondominio() {
   display: flex;
   justify-content: center;
   color: #5E5DEF;
+  padding-top: 30px;
+  padding-bottom: 30px;
   `;
 
 
@@ -24,6 +26,7 @@ export function CrearCondominio() {
     ruc: '',
     phone: '',
     email: '',
+    address: '',
     landline: '',
     description: '',
     user_created: '',
@@ -129,6 +132,22 @@ export function CrearCondominio() {
                   fullWidth
                   variant="outlined"
                   helperText='email'
+                  onChange={handleChange}
+                 
+                />
+              </Grid>
+
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+
+                <TextField
+                  error={false}
+                  label='address'
+                  type='text'
+                  name='address'
+                  margin='dense'
+                  fullWidth
+                  variant="outlined"
+                  helperText='address'
                   onChange={handleChange}
                  
                 />

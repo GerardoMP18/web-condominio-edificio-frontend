@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TablePropietarios from "../../components/Tables/TablePropietarios/TablePropietarios";
 
+
 export function P1() {
   return (
     <div className="propietario">

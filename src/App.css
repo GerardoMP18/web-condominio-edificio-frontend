@@ -23,8 +23,8 @@ body {
   width: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
-  padding-right: 310px;
-  padding-left: 380px;
+  padding-right: 320px;
+  padding-left: 500px;
   height: calc(100vh - 60px);
   display: flex;
   justify-content: space-between;
