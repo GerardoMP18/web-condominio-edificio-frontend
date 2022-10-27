@@ -58,7 +58,7 @@ const Data = [
     subNav: [
       {
         title: "Crear",
-        path: "/propietario/p1",
+        path: "/propietario/crear-propietario",
         icon: <AiIcons.AiFillHome />,
       },
       {

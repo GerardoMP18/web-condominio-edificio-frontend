@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
 import { CrearCondominio, C2 } from "./pages/Condominios/Condominios";
 import { CrearEdificio, E2 } from "./pages/Edificios/Edificios";
-import { P1, P2 } from "./pages/Propietarios/Propietarios";
+import { CrearPropietario, P2 } from "./pages/Propietarios/Propietarios";
 import { I1, I2 } from "./pages/Inquilinos/Inquilinos";
 import { Configuracion } from "./pages/Configuracion/Configuracion";
 import { CargaMasiva } from "./pages/CargaMasiva/CargaMasiva";
@@ -24,7 +24,7 @@ function App() {
             <Route path="/condominios/c2" element={<C2 />} />
             <Route path="/edificios/crear-edificio" element={<CrearEdificio />} />
             <Route path="/edificios/E2" element={<E2 />} />
-            <Route path="/propietario/p1" element={<P1 />} />
+            <Route path="/propietario/crear-propietario" element={<CrearPropietario />} />
             <Route path="/propietario/p2" element={<P2 />} />
             <Route path="/inquilino/i1" element={<I1 />} />
             <Route path="/inquilino/i2" element={<I2 />} />
