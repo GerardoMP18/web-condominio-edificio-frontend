@@ -20,7 +20,7 @@ function App() {
         <Sidebar />
         <div className="container">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/admin/ingresos" element={<A1 />} />
             <Route path="/admin/egresos" element={<A2 />} />
             <Route path="/admin/gastos" element={<G1 />} />
