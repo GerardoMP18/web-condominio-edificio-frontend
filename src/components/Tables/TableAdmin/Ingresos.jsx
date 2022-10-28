@@ -3,7 +3,7 @@ import { STable, STBody, STBodyTR, STD, STH, STHead, STHeadTR, Container, SubCon
 import Navigation from "../../Navigation/Navigation.jsx";
 import { BsPencilSquare, BsTrashFill } from "react-icons/bs";
 
-const keys= ["N_RECIBO", "Propietario", "DPTO", "Tipo_de_pago", "Dia", "Mes", "Año", "N_OPE", "Banco", "Lugar_de_pago", "Modalidad", "Concepto", "Año", "Importe"];
+const keys= ["N_RECIBO", "Propietario", "DPTO", "Tipo_de_pago", "Dia", "Mes", "Año", "N_OPE", "Banco", "Lugar_de_pago", "Modalidad", "Concepto", "Año_concepto", "Importe"];
 
 function Ingresos(props) {
   const { data } = props;

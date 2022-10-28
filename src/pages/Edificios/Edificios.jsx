@@ -77,6 +77,8 @@ export function CrearEdificio() {
                     <Grid container direction="row" spacing={3}>
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           id="id_condominium"
                           error={false}
                           label="id condominio"
@@ -92,6 +94,8 @@ export function CrearEdificio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           id="name_building"
                           error={false}
                           label="Nombre del edificio a crear"
@@ -107,6 +111,8 @@ export function CrearEdificio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           error={false}
                           label="ruc del condominio"
                           type="number"
@@ -121,6 +127,8 @@ export function CrearEdificio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           error={false}
                           label="phone"
                           type="text"
@@ -135,6 +143,8 @@ export function CrearEdificio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           error={false}
                           label="email"
                           type="text"
@@ -149,6 +159,8 @@ export function CrearEdificio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           error={false}
                           label="description"
                           type="text"
@@ -163,6 +175,8 @@ export function CrearEdificio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           error={false}
                           label="floor"
                           type="number"
@@ -177,6 +191,8 @@ export function CrearEdificio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           error={false}
                           label="address"
                           type="text"
@@ -191,7 +207,10 @@ export function CrearEdificio() {
                     </Grid>
 
                     <Button
-                      variant="outlined"
+                      variant="contained"
+                      color="success"
+                      size="medium"
+                      disableElevation
                       type="submit"
                       onClick={postPetition}
                     >

@@ -55,36 +55,95 @@ export function CrearPropietario() {
                     <Grid container direction="row" spacing={3}>
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
-                          id="email"
+                          focused 
+                          required
+                          id="nombre"
                           error={false}
-                          label="email"
+                          label="nombre"
                           type="text"
-                          name="email"
+                          name="nombre"
                           margin="dense"
                           fullWidth
                           variant="outlined"
-                          helperText="ingrese su email"
+                          helperText="nombre del propietario a crear"
                           onChange={handleChange}
                         />
                       </Grid>
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           error={false}
-                          label="password"
-                          type="password"
-                          name="password"
+                          label="apellido"
+                          type="text"
+                          name="apellido"
                           margin="dense"
                           fullWidth
                           variant="outlined"
-                          helperText="ingrese su passsword"
+                          helperText="apellido del propietario a crear"
                           onChange={handleChange}
                         />
                       </Grid>
+
+                      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                        <TextField
+                          focused 
+                          required
+                          error={false}
+                          label="correo"
+                          type="text"
+                          name="correo"
+                          margin="dense"
+                          fullWidth
+                          variant="outlined"
+                          helperText="correo del propietario a crear"
+                          onChange={handleChange}
+                        />
+                      </Grid>
+
+                      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                        <TextField
+                          focused 
+                          required
+                          error={false}
+                          label="celular"
+                          type="number"
+                          name="celular"
+                          margin="dense"
+                          fullWidth
+                          variant="outlined"
+                          helperText="celular del propietario a crear"
+                          onChange={handleChange}
+                        />
+                      </Grid>
+
+                      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                        <TextField
+                          focused 
+                          required
+                          error={false}
+                          label="dni"
+                          type="number"
+                          name="dni"
+                          margin="dense"
+                          fullWidth
+                          variant="outlined"
+                          helperText="dni del propietario a crear"
+                          onChange={handleChange}
+                        />
+                      </Grid>
+
+
                     </Grid>
 
+                    
+
                     <Button
-                      variant="outlined"
+                      variant="contained"
+                      color="success"
+                      size="medium"
+                      disableElevation
                       type="submit"
                       onClick={postPetition}
                     >

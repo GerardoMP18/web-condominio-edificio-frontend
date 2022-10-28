@@ -54,13 +54,15 @@ export function CrearCondominio() {
           <form className="CrearCondominio">
             <div>
               <Box my={2}>
-                <Card>
+                <Card >
                   {/* <BackgroundColor> */}
                   <CardContent>
                     <Title>Crear Condominio</Title>
                     <Grid container direction="row" spacing={3}>
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          focused 
+                          required
                           id="name"
                           error={false}
                           label="name"
@@ -76,6 +78,9 @@ export function CrearCondominio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          
+                          focused 
+                          required
                           error={false}
                           label="ruc del condominio"
                           type="number"
@@ -90,9 +95,12 @@ export function CrearCondominio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                           
+                          focused 
+                          
                           error={false}
-                          label="phone"
-                          type="text"
+                          label="+51"
+                          type="number"
                           name="phone"
                           margin="dense"
                           fullWidth
@@ -104,6 +112,9 @@ export function CrearCondominio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                           
+                          focused 
+                          required
                           error={false}
                           label="email"
                           type="text"
@@ -118,6 +129,9 @@ export function CrearCondominio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                           
+                          focused 
+                          required
                           error={false}
                           label="address"
                           type="text"
@@ -132,6 +146,9 @@ export function CrearCondominio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          
+                          focused 
+                          required
                           error={false}
                           label="landline"
                           type="number"
@@ -146,6 +163,8 @@ export function CrearCondominio() {
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
+                          
+                          focused 
                           error={false}
                           label="description"
                           type="text"
@@ -160,12 +179,16 @@ export function CrearCondominio() {
                     </Grid>
 
                     <Button
-                      variant="outlined"
+                      variant="contained"
+                      color="success"
+                      size="medium"
+                      disableElevation
                       type="submit"
                       onClick={postPetition}
                     >
                       Crear
                     </Button>
+                    
                   </CardContent>
                   {/*</BackgroundColor>*/}
                 </Card>
