@@ -21,11 +21,11 @@ export const StylesNavigation = styled.div`
   }
 
   .page-num:hover {
-    background-color: #1876f2;
+    background-color: #6367F0;
     color: #f4f6f9;
   }
 
   .active {
-    background-color: #1876f2;
+    background-color: #6367F0;
   }
 `;

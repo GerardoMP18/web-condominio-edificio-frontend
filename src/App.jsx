@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./components/Tables/TableCargaMasiva/someStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
+import { A1, A2 } from "./pages/Admin/Admin";
 import { CrearCondominio, C2 } from "./pages/Condominios/Condominios";
 import { CrearEdificio, E2 } from "./pages/Edificios/Edificios";
 import { CrearPropietario, P2 } from "./pages/Propietarios/Propietarios";
@@ -20,6 +21,8 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/admin/ingresos" element={<A1 />} />
+            <Route path="/admin/egresos" element={<A2 />} />
             <Route path="/condominios/crear-condominio" element={<CrearCondominio />} />
             <Route path="/condominios/c2" element={<C2 />} />
             <Route path="/edificios/crear-edificio" element={<CrearEdificio />} />

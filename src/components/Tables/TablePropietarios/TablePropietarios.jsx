@@ -1,8 +1,10 @@
 import React, { useState, useEffect} from "react";
-import { STable, STBody, STBodyTR, STD, STH, STHead, STHeadTR, Container, SubContainer, Title } from "./someStyle.js";
+import { STable, STBody, STBodyTR, STD, STH, STHead, STHeadTR, Container, SubContainer, Title} from "../../Tables/styles.js"
 import Navigation from "../../Navigation/Navigation.jsx";
+import { BsPencilSquare, BsTrashFill } from "react-icons/bs";
 
-const keys= ["name", "address", "phone", "email", "ruc", "acciones"];
+
+const keys= ["edificio", "propietario", "piso", "departamento"];
 
 function TablePropietarios(props) {
   const { data } = props;
@@ -36,6 +38,7 @@ function TablePropietarios(props) {
                 {item}
               </STH>
             ))}
+            <STH>Acciones</STH>
           </STHeadTR>
         </STHead>
         <STBody>
@@ -52,6 +55,10 @@ function TablePropietarios(props) {
                 </STD>
                 );
               })}
+              <STD>          
+                <BsPencilSquare style={{ color: "#416AF9",fontSize: "25px", marginRight: "10px", cursor: "pointer" }} />
+                <BsTrashFill style={{ color: "#ff0000", fontSize: "25px", cursor: "pointer" }}/> 
+              </STD>
             </STBodyTR>
           ))}
         </STBody>

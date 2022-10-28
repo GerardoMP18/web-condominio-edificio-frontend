@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TableInquilinos from "../../components/Tables/TableInquilinos/TableInquilinos";
+import { data } from "./DataInquilinos"
 
 export function I1() {
   return (
@@ -10,7 +11,7 @@ export function I1() {
 }
 
 export function I2() {
-  const [condominiums, setCondominiums] = useState([]);
+{/*  const [inquilinos, setInquilinos] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -19,12 +20,12 @@ export function I2() {
   const fetchData = async () => {
     const response = await fetch("http://127.0.0.1:5000/api/condominiums");
     const data = await response.json();
-    setCondominiums(data);
-  };
+    setInquilinos(data);
+  };*/}
 
   return (
     <>
-      <TableInquilinos data={condominiums} />
+      <TableInquilinos data={data} />
     </>
   );
 }

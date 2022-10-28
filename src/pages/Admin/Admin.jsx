@@ -1,25 +1,21 @@
 import React from "react";
-
-export function Admin() {
-  return (
-    <div className="admin">
-      <h1>Admin0</h1>
-    </div>
-  );
-}
+import Egresos from "../../components/Tables/TableAdmin/Egresos";
+import Ingresos from "../../components/Tables/TableAdmin/Ingresos";
+import { dataI } from "../../components/Tables/TableAdmin/DataIngresos";
+import { dataE } from "../../components/Tables/TableAdmin/DataEgresos";
 
 export function A1() {
   return (
-    <div className="admin">
-      <h1>Admin/a11</h1>
-    </div>
+    <>
+      <Ingresos data={dataI} />
+    </>
   );
 }
 
 export function A2() {
   return (
-    <div className="admin">
-      <h1>Admin/a22</h1>
-    </div>
+    <>
+      <Egresos data={dataE} />
+    </>
   );
 }

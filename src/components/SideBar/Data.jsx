@@ -12,6 +12,24 @@ const Data = [
     iconOpened: <RiIcons.RiArrowUpSFill />,
   },
   {
+    title: "Admin",
+    icon: <AiIcons.AiFillHome />,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: "Ingresos",
+        path: "/admin/ingresos",
+        icon: <AiIcons.AiFillHome />,
+      },
+      {
+        title: "Egresos",
+        path: "/admin/egresos",
+        icon: <AiIcons.AiFillHome />,
+      },
+    ]
+  },
+  {
     title: "Condominios",
     path: "/condominios",
     icon: <IoIcons.IoIosPaper />,
@@ -32,7 +50,6 @@ const Data = [
   },
   {
     title: "Edificios",
-    path: "/edificios",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -51,7 +68,6 @@ const Data = [
   },
   {
     title: "Propietario",
-    path: "/propietario",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -70,7 +86,6 @@ const Data = [
   },
   {
     title: "Inquilino",
-    path: "/inquilino",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,

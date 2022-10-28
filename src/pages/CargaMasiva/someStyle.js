@@ -18,6 +18,7 @@ export const FeaturedItem = styled.div`
   border-radius: 10px;
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   background: white;
+  overflow-x: scroll;
 `;
 
 export const FeaturedTitle = styled.span`
@@ -57,7 +58,7 @@ export const CargaItem = styled.div`
   input[type="file"]::file-selector-button {
     margin-right: 20px;
     border: none;
-    background: #1876f2;
+    background: #6367F0;
     padding: 5px 20px;
     border-radius: 10px;
     color: #fff;
@@ -70,7 +71,7 @@ export const Button1 = styled.button`
   padding: 15px;
   width: 120px;
   border: none;
-  background-color: #1876f2;
+  background-color: #6367F0;
   color: white;
   padding: 7px 10px;
   font-weight: 600;

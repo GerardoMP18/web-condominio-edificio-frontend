@@ -1,15 +1,16 @@
 import React, { useState, useEffect} from "react";
-import { STable, STBody, STBodyTR, STD, STH, STHead, STHeadTR, Container, SubContainer, Title } from "./someStyle.js";
+import { STable, STBody, STBodyTR, STD, STH, STHead, STHeadTR, Container, SubContainer, Title } from "../../Tables/styles.js"
 import Navigation from "../../Navigation/Navigation.jsx";
+import { BsPencilSquare, BsTrashFill } from "react-icons/bs";
 
-const keys= ["name", "address", "phone", "email", "ruc", "acciones"];
+const keys= ["name", "address", "phone", "email", "ruc"];
 
 function TableEdificios(props) {
   const { data } = props;
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 14;
+  const itemsPerPage = 11;
   
   useEffect(() => {
     console.log("Paso 6")
@@ -36,6 +37,7 @@ function TableEdificios(props) {
                 {item}
               </STH>
             ))}
+            <STH>Acciones</STH>
           </STHeadTR>
         </STHead>
         <STBody>
@@ -52,6 +54,10 @@ function TableEdificios(props) {
                 </STD>
                 );
               })}
+              <STD>          
+                <BsPencilSquare style={{ color: "#416AF9",fontSize: "25px", marginRight: "10px", cursor: "pointer" }} />
+                <BsTrashFill style={{ color: "#ff0000", fontSize: "25px", cursor: "pointer" }}/> 
+              </STD>
             </STBodyTR>
           ))}
         </STBody>
