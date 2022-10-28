@@ -28,7 +28,7 @@ function Egresos(props) {
   return (
     <Container>
       <SubContainer>
-      <Title>Gastos</Title>
+      <Title>Lista de Egresos</Title>
       <STable>
         <STHead>
           <STHeadTR>
