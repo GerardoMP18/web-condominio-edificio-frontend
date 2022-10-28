@@ -1,118 +1,138 @@
 import React from "react";
 import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
+import * as HiIcons from "react-icons/hi";
+import * as FaIcons from "react-icons/fa";
+import * as IoIcons from "react-icons/io";
+import * as MdIcons from "react-icons/md";
 
 const Data = [
   {
     title: "Home",
-    path: "/",
+    path: "/home",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
   },
   {
     title: "Admin",
-    icon: <AiIcons.AiFillHome />,
+    icon: <FaIcons.FaUserCog />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
         title: "Ingresos",
         path: "/admin/ingresos",
-        icon: <AiIcons.AiFillHome />,
+        icon: <FaIcons.FaMoneyBill />,
       },
       {
         title: "Egresos",
         path: "/admin/egresos",
-        icon: <AiIcons.AiFillHome />,
+        icon: <FaIcons.FaMoneyCheck />,
       },
     ]
   },
   {
     title: "Condominios",
-    path: "/condominios",
-    icon: <IoIcons.IoIosPaper />,
+    icon: <FaIcons.FaBuilding />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
         title: "Crear",
-        path: "/condominios/crear-condominio",
-        icon: <AiIcons.AiFillHome />,
+        path: "/condominios/c1",
+        icon: <IoIcons.IoMdCreate />,
       },
       {
         title: "Listar",
         path: "/condominios/c2",
-        icon: <AiIcons.AiFillHome />,
+        icon: <FaIcons.FaListUl />,
       },
     ],
   },
   {
     title: "Edificios",
-    icon: <AiIcons.AiFillHome />,
+    icon: <HiIcons.HiOfficeBuilding />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
         title: "Crear",
-        path: "/edificios/crear-edificio",
-        icon: <AiIcons.AiFillHome />,
+        path: "/edificios/e1",
+        icon: <IoIcons.IoMdCreate />,
       },
       {
         title: "Listar",
         path: "/edificios/e2",
-        icon: <AiIcons.AiFillHome />,
+        icon: <FaIcons.FaListUl />,
       },
     ],
   },
   {
     title: "Propietario",
-    icon: <AiIcons.AiFillHome />,
+    icon: <FaIcons.FaUserShield />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
         title: "Crear",
-        path: "/propietario/crear-propietario",
-        icon: <AiIcons.AiFillHome />,
+        path: "/propietario/p1",
+        icon: <FaIcons.FaUserEdit/>,
       },
       {
         title: "Listar",
         path: "/propietario/p2",
-        icon: <AiIcons.AiFillHome />,
+        icon: <FaIcons.FaUsers />,
       },
     ],
   },
   {
     title: "Inquilino",
-    icon: <AiIcons.AiFillHome />,
+    icon: <FaIcons.FaUserFriends />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
     subNav: [
       {
         title: "Crear",
         path: "/inquilino/I1",
-        icon: <AiIcons.AiFillHome />,
+        icon: <FaIcons.FaUserEdit/>,
       },
       {
         title: "Listar",
         path: "/inquilino/I2",
-        icon: <AiIcons.AiFillHome />,
+        icon: <FaIcons.FaUsers />,
+      },
+    ],
+  },
+  {
+    title: "Gastos",
+    icon: <AiIcons.AiFillCreditCard/>,
+    iconClosed: <RiIcons.RiArrowDownSFill />,
+    iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+      {
+        title: "Ordinario",
+        path: "/gastos/g1",
+        icon: <AiIcons.AiFillAccountBook />,
+      },
+      {
+        title: "Extraordinario",
+        path: "/gastos/g2",
+        icon: <FaIcons.FaGratipay />,
       },
     ],
   },
   {
     title: "Carga Masiva",
     path: "/cargamasiva",
-    icon: <AiIcons.AiFillHome />,
+    icon: <MdIcons.MdOutlineViewList />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
   },
   {
     title: "Configuracion",
     path: "/configuracion",
-    icon: <AiIcons.AiFillHome />,
+    icon: <FaIcons.FaCog/>,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
   },
