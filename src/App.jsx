@@ -30,7 +30,7 @@ function App() {
             <Route path="/edificios/E2" element={<E2 />} />
             <Route path="/propietario/crear-propietario" element={<CrearPropietario />} />
             <Route path="/propietario/p2" element={<P2 />} />
-            <Route path="/inquilino/i1" element={<I1 />} />
+            <Route path="/inquilino/crear-inquilino" element={<I1 />} />
             <Route path="/inquilino/i2" element={<I2 />} />
             <Route path="/configuracion" element={<Configuracion />} />
             <Route path="/cargamasiva" element={<CargaMasiva />} />

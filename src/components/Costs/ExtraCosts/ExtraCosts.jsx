@@ -1,14 +1,13 @@
 import React from "react";
-import { FeatureTitle} from "./someStyle";
-import { Grid, TextField, Box, Card, CardContent, Button} from "@mui/material";
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import { useTheme } from '@mui/material/styles';
-import InputLabel from '@mui/material/InputLabel';
+import { FeatureTitle } from "./someStyle";
+import { Grid, TextField, Box, Card, CardContent, Button } from "@mui/material";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import { useTheme } from "@mui/material/styles";
+import InputLabel from "@mui/material/InputLabel";
 
-
-export function ExtraCosts(){
+export function ExtraCosts() {
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {
@@ -21,16 +20,16 @@ export function ExtraCosts(){
   };
 
   const names = [
-  'Todos los pagadores activos',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
+    "Todos los pagadores activos",
+    "Van Henry",
+    "April Tucker",
+    "Ralph Hubbard",
+    "Omar Alexander",
+    "Carlos Abbott",
+    "Miriam Wagner",
+    "Bradley Wilkerson",
+    "Virginia Andrews",
+    "Kelly Snyder",
   ];
 
   function getStyles(name, personName, theme) {
@@ -45,51 +44,40 @@ export function ExtraCosts(){
     const {
       target: { value },
     } = event;
-    setPersonName(
-      typeof value === 'string' ? value.split(',') : value,
-    );
+    setPersonName(typeof value === "string" ? value.split(",") : value);
   };
 
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
-  
 
-    return (
-      <div >
-
-      <Box my={2} >
-
+  return (
+    <div>
+      <Box my={2}>
         <Card>
           <CardContent>
-
             <FeatureTitle>Asignar gasto extraordinario</FeatureTitle>
-            <Grid container direction='row' spacing={3}>
+            <Grid container direction="row" spacing={3}>
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-
                 <TextField
                   id="concept"
                   error={false}
-                  label='concept'
-                  type='text'
-                  margin='dense'
+                  label="concept"
+                  type="text"
+                  margin="dense"
                   fullWidth
                   variant="outlined"
-                  
-                  
                 />
                 <InputLabel id="demo-multiple-name-label">Concepto</InputLabel>
               </Grid>
 
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-
                 <TextField
                   error={false}
-                  label='amount'
-                  type='number'
-                  margin='dense'
+                  label="amount"
+                  type="number"
+                  margin="dense"
                   fullWidth
                   variant="outlined"
-                 
                 />
                 <InputLabel id="demo-multiple-name-label">Monto</InputLabel>
               </Grid>
@@ -115,21 +103,20 @@ export function ExtraCosts(){
                     </MenuItem>
                   ))}
                 </Select>
-                <InputLabel id="demo-multiple-name-label">Selección de pagadores</InputLabel>
+                <InputLabel id="demo-multiple-name-label">
+                  Selección de pagadores
+                </InputLabel>
               </Grid>
-            
-              
             </Grid>
             <br />
             <br />
-            
+
             <Button variant="outlined">Agregar</Button>
           </CardContent>
         </Card>
       </Box>
-    
     </div>
-    );
-};
+  );
+}
 
-export default ExtraCosts; 
+export default ExtraCosts;

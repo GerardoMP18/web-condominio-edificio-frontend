@@ -21,8 +21,11 @@ export const FeaturedItem = styled.div`
   overflow-x: scroll;
 `;
 
-export const FeaturedTitle = styled.span`
-  font-size: 20px;
+export const FeaturedTitle = styled.h1`
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  color: #6367f0;
 `;
 
 export const UserForm = styled.form`
@@ -76,10 +79,10 @@ export const Button1 = styled.button`
   padding: 7px 10px;
   font-weight: 600;
   border-radius: 10px;
-  margin-top: 37px;
-  height: 34px;
+  margin-top: 35px;
+  margin-left: 20px;
+  height: 36px;
   cursor: pointer;
-  margin-left: 320px;
 `;
 
 export const Button2 = styled(Button1)`

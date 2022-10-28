@@ -40,7 +40,7 @@ const Data = [
     subNav: [
       {
         title: "Crear",
-        path: "/condominios/c1",
+        path: "/condominios/crear-condominio",
         icon: <IoIcons.IoMdCreate />,
       },
       {
@@ -58,7 +58,7 @@ const Data = [
     subNav: [
       {
         title: "Crear",
-        path: "/edificios/e1",
+        path: "/edificios/crear-edificio",
         icon: <IoIcons.IoMdCreate />,
       },
       {
@@ -76,7 +76,7 @@ const Data = [
     subNav: [
       {
         title: "Crear",
-        path: "/propietario/p1",
+        path: "/propietario/crear-propietario",
         icon: <FaIcons.FaUserEdit/>,
       },
       {
@@ -94,7 +94,7 @@ const Data = [
     subNav: [
       {
         title: "Crear",
-        path: "/inquilino/I1",
+        path: "/inquilino/crear-inquilino",
         icon: <FaIcons.FaUserEdit/>,
       },
       {

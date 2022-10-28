@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 /* Navbar */
 export const Nav = styled.div`
-  background-color: #060b26;
   background: #6367F0;
   height: 60px;
   display: flex;
