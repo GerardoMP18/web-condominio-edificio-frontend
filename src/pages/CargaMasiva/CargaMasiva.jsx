@@ -43,27 +43,33 @@ export function CargaMasiva() {
 	}
 
 	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (excelFile !== null) {
-			const workbook = XLSX.read(excelFile, { type: 'array' });
-			const worksheetName = workbook.SheetNames[0];
-			const worksheet = workbook.Sheets[worksheetName];
-			const data = XLSX.utils.sheet_to_json(worksheet);
-			let newSalida = [];
+        e.preventDefault();
+        if (excelFile !== null) {
+            const workbook = XLSX.read(excelFile, { type: 'array' });
+            const worksheetName = workbook.SheetNames[0];
+            console.log(excelFile);
+            const worksheet = workbook.Sheets[worksheetName];
+            const data = XLSX.utils.sheet_to_json(worksheet);
+            let newSalida = [];
+            console.log(data);
 
-			for (let index = 0; index < data.length; index++) {
-				const ga = data[index];
-				newSalida.push({
-					...ga,
-					birth_date: JSON.stringify(new Date((ga.birth_date - (25567 + 2)) * 86400 * 1000)).split('"')[1].split("T")[0]
-				});
-			}
-			setExcelData(newSalida);
-		}
-		else {
-			setExcelData(null);
-		}
-	}
+            if (fileName['name'].toLowerCase() == 'carga_masiva_user.xlsx'){
+                for (let index = 0; index < data.length; index++) {
+                    const ga = data[index];
+                    newSalida.push({
+                        ...ga,
+                        FechaCum: JSON.stringify(new Date((ga.FechaCum - (25567 + 2)) * 86400 * 1000)).split('"')[1].split("T")[0]
+                    });
+                }
+                setExcelData(newSalida);
+            }
+            
+            setExcelData(data);
+        }
+        else {
+            setExcelData(null);
+        }
+    }
 
 	return (
 		<FeaturedContainer>
