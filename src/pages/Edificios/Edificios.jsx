@@ -208,7 +208,7 @@ export function CrearEdificio() {
 
                     <Button
                       variant="contained"
-                      color="success"
+                   
                       size="medium"
                       disableElevation
                       type="submit"

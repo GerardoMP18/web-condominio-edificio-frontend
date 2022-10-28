@@ -141,7 +141,7 @@ export function CrearPropietario() {
 
                     <Button
                       variant="contained"
-                      color="success"
+                     
                       size="medium"
                       disableElevation
                       type="submit"

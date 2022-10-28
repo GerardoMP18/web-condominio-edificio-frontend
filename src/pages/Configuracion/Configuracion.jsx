@@ -136,7 +136,7 @@ export function Configuracion() {
 
                     <Button
                       variant="contained"
-                      color="success"
+                  
                       size="medium"
                       disableElevation
                       type="submit"
