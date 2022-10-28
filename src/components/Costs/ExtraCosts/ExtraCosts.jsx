@@ -50,14 +50,34 @@ export function ExtraCosts() {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
+  const [age, setAge] = React.useState('');
+
+  const handleOtherChange = (event) => {
+    setAge(event.target.value);
+  };
+
   return (
     <div>
-      <Box my={2}>
+      <Box my={1} >
         <Card>
           <CardContent>
-            <FeatureTitle>Asignar gasto extraordinario</FeatureTitle>
-            <Grid container direction="row" spacing={3}>
-              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+            <FeatureTitle>Asignar gasto</FeatureTitle>
+            <Grid sx={{ flexGrow: 1 }} spacing={3}>
+              <Grid item xs={6} sm={6} md={6} lg={5} xl={6}>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={age}
+                  fullWidth
+                  label="Age"
+                  onChange={handleOtherChange}
+                >
+                  <MenuItem value={10}>Ordinario</MenuItem>
+                  <MenuItem value={20}>Extraordinario</MenuItem>
+                </Select>
+                <InputLabel id="demo-multiple-name-label">Tipo de gasto</InputLabel>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={5} xl={6}>
                 <TextField
                   id="concept"
                   error={false}
@@ -70,7 +90,7 @@ export function ExtraCosts() {
                 <InputLabel id="demo-multiple-name-label">Concepto</InputLabel>
               </Grid>
 
-              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+              <Grid item xs={6} sm={6} md={6} lg={5} xl={6}>
                 <TextField
                   error={false}
                   label="amount"
@@ -82,7 +102,7 @@ export function ExtraCosts() {
                 <InputLabel id="demo-multiple-name-label">Monto</InputLabel>
               </Grid>
 
-              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+              <Grid item xs={6} sm={6} md={6} lg={5} xl={6}>
                 <Select
                   labelId="demo-multiple-name-label"
                   id="demo-multiple-name"
@@ -110,11 +130,11 @@ export function ExtraCosts() {
             </Grid>
             <br />
             <br />
-
-            <Button variant="outlined">Agregar</Button>
+            <Button variant="contained">Agregar</Button>
           </CardContent>
         </Card>
       </Box>
+    
     </div>
   );
 }

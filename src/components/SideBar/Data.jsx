@@ -30,6 +30,11 @@ const Data = [
         path: "/admin/egresos",
         icon: <FaIcons.FaMoneyCheck />,
       },
+      {
+        title: "Gastos",
+        path: "/admin/gastos",
+        icon: <FaIcons.FaGratipay />,
+      },
     ]
   },
   {
@@ -101,24 +106,6 @@ const Data = [
         title: "Listar",
         path: "/inquilino/I2",
         icon: <FaIcons.FaUsers />,
-      },
-    ],
-  },
-  {
-    title: "Gastos",
-    icon: <AiIcons.AiFillCreditCard/>,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-      {
-        title: "Ordinario",
-        path: "/gastos/g1",
-        icon: <AiIcons.AiFillAccountBook />,
-      },
-      {
-        title: "Extraordinario",
-        path: "/gastos/g2",
-        icon: <FaIcons.FaGratipay />,
       },
     ],
   },

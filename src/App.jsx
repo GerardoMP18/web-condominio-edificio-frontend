@@ -5,14 +5,13 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./components/Tables/TableCargaMasiva/someStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home/Home";
-import { A1, A2 } from "./pages/Admin/Admin";
+import { A1, A2, G1 } from "./pages/Admin/Admin";
 import { CrearCondominio, C2 } from "./pages/Condominios/Condominios";
 import { CrearEdificio, E2 } from "./pages/Edificios/Edificios";
 import { CrearPropietario, P2 } from "./pages/Propietarios/Propietarios";
 import { CrearInquilino, I2 } from "./pages/Inquilinos/Inquilinos";
 import { Configuracion } from "./pages/Configuracion/Configuracion";
 import { CargaMasiva } from "./pages/CargaMasiva/CargaMasiva";
-import { G1, G2 } from "./pages/Gastos/Gastos";
 
 function App() {
   return (
@@ -24,6 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/admin/ingresos" element={<A1 />} />
             <Route path="/admin/egresos" element={<A2 />} />
+            <Route path="/admin/gastos" element={<G1 />} />
             <Route path="/condominios/crear-condominio" element={<CrearCondominio />} />
             <Route path="/condominios/c2" element={<C2 />} />
             <Route path="/edificios/crear-edificio" element={<CrearEdificio />} />
@@ -34,8 +34,6 @@ function App() {
             <Route path="/inquilino/i2" element={<I2 />} />
             <Route path="/configuracion" element={<Configuracion />} />
             <Route path="/cargamasiva" element={<CargaMasiva />} />
-            <Route path="gastos/g1" element={<G1 />} />
-            <Route path="gastos/g2" element={<G2 />} />
           </Routes>
         </div>
       </BrowserRouter>
