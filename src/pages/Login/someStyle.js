@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import guy from "../../assets/img/guy.png";
 
 export const Section = styled.section`
@@ -44,17 +45,29 @@ export const TextoRe = styled.a`
     margin-top: 10px;
 `;
 
-export const TextoBtn = styled.a`
+export const TextoBtn = styled.button`
     color: white;
     background-color: #4461F2;
     border-radius: 10px;
     font-family: 'Nunito';
-    padding: 11px 100px;
+    padding: 10px 100px;
     margin-left: 23px;
+    font-size: 15px;
     text-decoration: none;
     display: inline-block;
+    border-color: transparent;
+
+    &:active {
+        background-color: #4455F2;
+        text-decoration: none;
+        color: white;
+    }
 `;
 
+export const StyledLink = styled(Link)`
+    color: white;
+    text-decoration: none;
+`;
 
 // const TextoSi = styled.p`
 //     font-family: 'Nunito';
@@ -137,4 +150,13 @@ export const ImageFondo = styled.div`
     width: 500px;
     height: 500px;
     position: absolute;
+`;
+
+export const Background = styled.div`
+    z-index: -200;
+    background-color: #F2F4FF;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
 `;
