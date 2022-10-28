@@ -4,6 +4,7 @@ import { Grid, TextField, Box, Card, CardContent, Button } from "@mui/material";
 import axios from "axios";
 import { Formik } from "formik";
 import styled from "styled-components";
+import { data } from "./DataEdificios";
 
 const lista = [];
 
@@ -231,7 +232,7 @@ export function CrearEdificio() {
 
 /* API Edificios */
 export function E2() {
-  const [edificios, setEdificios] = useState([]);
+{/*const [edificios, setEdificios] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -242,10 +243,11 @@ export function E2() {
     const data = await response.json();
     setEdificios(data);
   };
+*/}
 
   return (
     <>
-      <TableEdificios data={edificios} />
+      <TableEdificios data={data} />
     </>
   );
 }

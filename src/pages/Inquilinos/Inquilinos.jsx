@@ -163,25 +163,6 @@ export function CrearInquilino() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export function I2() {
 {/*  const [inquilinos, setInquilinos] = useState([]);
 
