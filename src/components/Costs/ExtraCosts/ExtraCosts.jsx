@@ -77,8 +77,25 @@ export function ExtraCosts() {
                 </Select>
                 <InputLabel id="demo-multiple-name-label">Tipo de gasto</InputLabel>
               </Grid>
+
+              <Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
+                <TextField
+                  focused 
+                  required
+                  error={false}
+                  label="amount"
+                  type="number"
+                  margin="dense"
+                  fullWidth
+                  variant="outlined"
+                />
+                <InputLabel id="demo-multiple-name-label">Monto</InputLabel>
+              </Grid>
+              
               <Grid item xs={6} sm={6} md={6} lg={5} xl={6}>
                 <TextField
+                   focused 
+                   required
                   id="concept"
                   error={false}
                   label="concept"
@@ -90,20 +107,11 @@ export function ExtraCosts() {
                 <InputLabel id="demo-multiple-name-label">Concepto</InputLabel>
               </Grid>
 
-              <Grid item xs={6} sm={6} md={6} lg={5} xl={6}>
-                <TextField
-                  error={false}
-                  label="amount"
-                  type="number"
-                  margin="dense"
-                  fullWidth
-                  variant="outlined"
-                />
-                <InputLabel id="demo-multiple-name-label">Monto</InputLabel>
-              </Grid>
+              
 
               <Grid item xs={6} sm={6} md={6} lg={5} xl={6}>
                 <Select
+                
                   labelId="demo-multiple-name-label"
                   id="demo-multiple-name"
                   multiple
