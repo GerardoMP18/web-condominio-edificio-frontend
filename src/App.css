@@ -19,7 +19,7 @@ body {
 .CrearCondominio {
   font-size: 3rem;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 100px;
   padding-right: 320px;
   padding-left: 500px;
@@ -28,6 +28,7 @@ body {
   justify-content: space-between;
   background: #f2f4ff;
 }
+
 .edificios,
 .admin,
 .propietario,
