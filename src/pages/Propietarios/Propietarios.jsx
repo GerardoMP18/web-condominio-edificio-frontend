@@ -4,9 +4,8 @@ import { Grid, TextField, Box, Card, CardContent, Button } from "@mui/material";
 import axios from "axios";
 import { Formik } from "formik";
 import styled from "styled-components";
-import { data } from "./DataPropietarios";
 
-const baseUrl = "http://127.0.0.1:5000/api/login";
+const baseUrl = "http://127.0.0.1:5000/api/users";
 
 export function CrearPropietario() {
   const Title = styled.h6`
@@ -18,8 +17,15 @@ export function CrearPropietario() {
   `;
 
   const [consolaSelecionada, SetconsolaSelecionada] = useState({
+    first_name: "",
+    last_name: "",
+    id_document_type: 1,
+    number_document: "",
     email: "",
     password: "",
+    phone: "",
+    birth_date: "",
+    id_role: 2,
   });
 
   const handleChange = (e) => {
@@ -41,7 +47,7 @@ export function CrearPropietario() {
     <>
       <Formik
         onSubmit={(valores) => {
-          console.log("Condominio Creado");
+          console.log("Propietario Creado");
         }}
       >
         {() => (
@@ -57,11 +63,11 @@ export function CrearPropietario() {
                         <TextField
                           focused 
                           required
-                          id="nombre"
+                          id="first_name"
                           error={false}
                           label="nombre"
                           type="text"
-                          name="nombre"
+                          name="first_name"
                           margin="dense"
                           fullWidth
                           variant="outlined"
@@ -74,10 +80,11 @@ export function CrearPropietario() {
                         <TextField
                           focused 
                           required
+		          id="last_name"
                           error={false}
                           label="apellido"
                           type="text"
-                          name="apellido"
+                          name="last_name"
                           margin="dense"
                           fullWidth
                           variant="outlined"
@@ -86,18 +93,19 @@ export function CrearPropietario() {
                         />
                       </Grid>
 
-                      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+		       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                         <TextField
-                          focused 
+                          focused
                           required
+                          id="number_document"
                           error={false}
-                          label="correo"
+                          label="numero de documento"
                           type="text"
-                          name="correo"
+                          name="number_document"
                           margin="dense"
                           fullWidth
                           variant="outlined"
-                          helperText="correo del propietario a crear"
+                          helperText="numero de documento del propietario a crear"
                           onChange={handleChange}
                         />
                       </Grid>
@@ -106,10 +114,45 @@ export function CrearPropietario() {
                         <TextField
                           focused 
                           required
+			  id="email"
+                          error={false}
+                          label="correo"
+                          type="text"
+                          name="email"
+                          margin="dense"
+                          fullWidth
+                          variant="outlined"
+                          helperText="correo del propietario a crear"
+                          onChange={handleChange}
+                        />
+                      </Grid>
+
+		       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                        <TextField
+                          focused
+                          required
+                          id="password"
+                          error={false}
+                          label="contraseña"
+                          type="password"
+                          name="password"
+                          margin="dense"
+                          fullWidth
+                          variant="outlined"
+                          helperText="contraseña del propietario a crear"
+                          onChange={handleChange}
+                        />
+                      </Grid>
+
+                      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                        <TextField
+                          focused 
+                          required
+		          id="phone"
                           error={false}
                           label="celular"
                           type="number"
-                          name="celular"
+                          name="phone"
                           margin="dense"
                           fullWidth
                           variant="outlined"
@@ -122,14 +165,15 @@ export function CrearPropietario() {
                         <TextField
                           focused 
                           required
+		          id="birth_date"
                           error={false}
-                          label="dni"
-                          type="number"
-                          name="dni"
+                          label="fecha de nacimiento"
+                          type="date"
+                          name="birth_date"
                           margin="dense"
                           fullWidth
                           variant="outlined"
-                          helperText="dni del propietario a crear"
+                          helperText="fecha de nacimiento del propietario a crear"
                           onChange={handleChange}
                         />
                       </Grid>
@@ -162,24 +206,21 @@ export function CrearPropietario() {
 }
 
 export function P2() {
-  {
-    /*const [propietarios, setPropietarios] = useState([]);
+  const [propietarios, setPropietarios] = useState([]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch("http://127.0.0.1:5000/api/condominiums");
+    const response = await fetch("http://127.0.0.1:5000/api/owners");
     const data = await response.json();
-  
     setPropietarios(data);
-  */
-  }
+  };
 
   return (
     <>
-      <TablePropietarios data={data} />
+      <TablePropietarios data={propietarios} />
     </>
   );
 }
