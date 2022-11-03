@@ -4,16 +4,14 @@ import { Grid, TextField, Box, Card, CardContent, Button } from "@mui/material";
 import axios from "axios";
 import { Formik } from "formik";
 import styled from "styled-components";
-import { data } from "./DataEdificios";
 
-const lista = [];
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
-const baseUrl = `http://127.0.0.1:5000/api/condominiums/${lista[0]}/buildings`;
-
-const baseUrl1 = (id) => {
-  const baseUrl = `http://127.0.0.1:5000/api/condominiums/${id}/buildings`;
-  return baseUrl1;
-};
+const baseUrl = 'http://127.0.0.1:5000/api/condominiums/'
 
 export function CrearEdificio() {
   const Title = styled.h6`
@@ -23,6 +21,9 @@ export function CrearEdificio() {
     padding-top: 30px;
     padding-bottom: 30px;
   `;
+
+/* editContactId tiene el ID de el condominio que voy a agregar un edificio */
+  const [editContactId, setEditContactId] = useState(null);
 
   const [consolaSelecionada, SetconsolaSelecionada] = useState({
     id_condominium: "",
@@ -41,30 +42,47 @@ export function CrearEdificio() {
     const { name, value } = e.target;
     SetconsolaSelecionada((prevState) => ({
       ...prevState,
+      ["id_condominium"]: editContactId,
       [name]: value,
     }));
-    lista.push(value);
+
     console.log("name" + name + "value" + value);
     console.log("este es mi json" + consolaSelecionada);
   };
-
-  console.log(" este es mi lista " + lista);
 
   /*consolaSelecionada.map((items, index) => {
     console.log("este es mi map " + items);
   });*/
 
   const postPetition = async () => {
-    await axios.post(baseUrl1, consolaSelecionada).then((response) => {
+    await axios.post(baseUrl + editContactId + "/buildings", consolaSelecionada).then((response) => {
       setData(data.concat(response.data));
     });
   };
+
+/* State contiene a todos los condominios en una lista para mostrar en el desplegable */
+  const [state, setState] = useState([]);
+  useEffect(() => {
+    componentDidCondominium()
+  }, []);
+
+  /* Funcion que al hacer click al boton editar, le dara el id del condominio a editar para activar el EditableRow */
+  const handleEditClick = (condominiumId) => {
+    setEditContactId(condominiumId);
+  };
+
+  /* funcion que retorna todos los conodominios por el metodo GET al desplegable*/
+  const componentDidCondominium = () => {
+    axios.get("http://127.0.0.1:5000/api/condominiums").then((response) => {
+      setState(response.data)
+    })
+  }
 
   return (
     <>
       <Formik
         onSubmit={(valores) => {
-          console.log("Condominio Creado");
+          console.log("Edificio Creado");
         }}
       >
         {() => (
@@ -77,20 +95,22 @@ export function CrearEdificio() {
                     <Title>Crear Edificio</Title>
                     <Grid container direction="row" spacing={3}>
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                        <TextField
-                          focused 
-                          required
-                          id="id_condominium"
-                          error={false}
-                          label="id condominio"
-                          type="number"
-                          name="id_condominium"
-                          margin="dense"
-                          fullWidth
-                          variant="outlined"
-                          helperText="Ingrese el id del condominio a asignar"
-                          onChange={handleChange}
-                        />
+		        <FormControl fullWidth sx={{ m: 1, ml: 0 }} focused>
+        		  <InputLabel>Condominio*</InputLabel>
+        		  <Select
+          		    labelId="demo-simple-select-helper-label"
+          		    id="demo-simple-select-helper"
+          		    label="Condominio"
+			    name="id_condominium"
+		            onClick={componentDidCondominium}
+		          >
+		            {state.map(elemento=>(
+		              <MenuItem onClick={()=> handleEditClick(elemento.id)} value={elemento.id}>{elemento.name}</MenuItem>
+			    )
+			    )}
+        		  </Select>
+        		  <FormHelperText>Selecciona un Condominio</FormHelperText>
+      			</FormControl>
                       </Grid>
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -106,7 +126,7 @@ export function CrearEdificio() {
                           fullWidth
                           variant="outlined"
                           helperText="Ingrese nombre del Edificio"
-                          onChange={handleChange}
+		          onChange={handleChange}
                         />
                       </Grid>
 
@@ -227,27 +247,26 @@ export function CrearEdificio() {
       </Formik>
     </>
   );
-}
+};
 
 
 /* API Edificios */
 export function E2() {
-{/*const [edificios, setEdificios] = useState([]);
+  const [edificios, setEdificios] = useState([]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch("http://127.0.0.1:5000/api/condominiums");
+    const response = await fetch("http://127.0.0.1:5000/api/buildings");
     const data = await response.json();
     setEdificios(data);
   };
-*/}
 
   return (
     <>
-      <TableEdificios data={data} />
+      <TableEdificios data={edificios} />
     </>
   );
 }
