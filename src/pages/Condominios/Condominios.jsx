@@ -4,7 +4,6 @@ import { Grid, TextField, Box, Card, CardContent, Button } from "@mui/material";
 import axios from "axios";
 import { Formik } from "formik";
 import styled from "styled-components";
-import { data } from "./DataCondominiums";
 
 const baseUrl = "http://127.0.0.1:5000/api/condominiums";
 
@@ -38,7 +37,8 @@ export function CrearCondominio() {
     console.log(consolaSelecionada);
   };
 
-  const postPetition = async () => {
+  const postPetition = async (e) => {
+    e.preventDefault();
     await axios.post(baseUrl, consolaSelecionada).then((response) => {
       setData(data.concat(response.data));
     });
@@ -196,7 +196,7 @@ export function CrearCondominio() {
 /* Api Condominios */
 export function C2() {
 
-{/*
+
   const [condominiums, setCondominiums] = useState([]);
 
   useEffect(() => {
@@ -208,11 +208,11 @@ export function C2() {
     const data = await response.json();
     setCondominiums(data);
   };
-*/}
+
 
   return (
     <>
-      <TableCondominiums data={data} />
+      <TableCondominiums data={condominiums} />
     </>
   );
 }
