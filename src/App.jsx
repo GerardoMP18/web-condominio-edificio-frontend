@@ -12,12 +12,13 @@ import { CrearPropietario, P2 } from "./pages/Propietarios/Propietarios";
 import { CrearInquilino, I2 } from "./pages/Inquilinos/Inquilinos";
 import { Configuracion } from "./pages/Configuracion/Configuracion";
 import { CargaMasiva } from "./pages/CargaMasiva/CargaMasiva";
+import Login from "./pages/Login/Login"
 
 function App() {
   return (
     <ThemeProvider theme={lightTheme}>
       <BrowserRouter>
-        <Sidebar />
+        <Login />
         <div className="container">
           <Routes>
             <Route path="/home" element={<Home />} />
