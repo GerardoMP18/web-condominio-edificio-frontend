@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import guy from "../../assets/img/guy.png";
 
+
 export const Section = styled.section`
     @import url('https://fonts.googleapis.com/css?family=Nunito');
     display: flex;
@@ -11,11 +12,12 @@ export const Section = styled.section`
 
 export const ContainerLogin = styled.div`
     padding-top: 10%;
+    text-align: center;
 `;
 
 export const H1 = styled.h1`
     font-family: 'Nunito';
-    margin-left: 60px;
+    /* margin-left: 60px; */
     font-size: 30px;
     color: #04103B;
     margin-bottom: 20px;
@@ -27,7 +29,7 @@ export const Input = styled.input`
     width: 250px;
     border-radius: 5px;
     border-style: none;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 
     input[placeholder], [placeholder], *[placeholder] {
         color: #04103B;
@@ -36,7 +38,7 @@ export const Input = styled.input`
 
 export const TextoRe = styled.a`
     font-family: 'Nunito';
-    margin-left: 150px;
+    margin-left: 100px;
     color: #686585;
     font-size: 12px;
     display: inline-block;
@@ -51,7 +53,7 @@ export const TextoBtn = styled.button`
     border-radius: 10px;
     font-family: 'Nunito';
     padding: 10px 100px;
-    margin-left: 23px;
+    /* margin-left: 23px; */
     font-size: 15px;
     text-decoration: none;
     display: inline-block;
@@ -68,22 +70,6 @@ export const StyledLink = styled(Link)`
     color: white;
     text-decoration: none;
 `;
-
-// const TextoSi = styled.p`
-//     font-family: 'Nunito';
-//     margin-left: 70px;
-//     color: #04103B;
-//     margin-bottom: -2px;
-//     font-size: 15px;
-// `;
-
-// const TextoRegister = styled.a`
-//     font-family: 'Nunito';
-//     color: #4461F2;
-//     text-decoration: none;
-//     font-weight: bolder;
-//     margin-left: 90px;    
-// `;
 
 export const DesignRectangle = styled.div`
     position: fixed;
