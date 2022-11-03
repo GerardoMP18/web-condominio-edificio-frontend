@@ -2,9 +2,10 @@ import React, { useState, useEffect} from "react";
 import { STable, STBody, STBodyTR, STD, STH, STHead, STHeadTR, Container, SubContainer, Title } from "../../Tables/styles.js"
 import Navigation from "../../Navigation/Navigation.jsx";
 import { BsPencilSquare, BsTrashFill } from "react-icons/bs";
+import ReadOnlyRow from "./ReadOnlyRow";
+import axios from "axios";
 
-const keys= ["edificio", "inquilino", "piso", "departamento"];
-
+const baseUrl = "http://127.0.0.1:5000/api/users/";
 
 function TableInquilinos(props) {
   const { data } = props;
@@ -13,6 +14,9 @@ function TableInquilinos(props) {
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 14;
   
+/* editContactId tiene el ID de el Row que voy a actualizar */
+  const [editContactId, setEditContactId] = useState(null);
+
   useEffect(() => {
     console.log("Paso 6")
     const endOffset = itemOffset + itemsPerPage;
@@ -24,6 +28,23 @@ function TableInquilinos(props) {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
   };
+
+/* Funcion que elimina un Row y hace uso de el METODO DELETE */
+  const handleDeleteClick = (inquilinoId) => {
+    const newInquilinos = [...currentItems]
+
+    const index = currentItems.findIndex((inquilino)=> inquilino.id === inquilinoId);
+
+    newInquilinos.splice(index, 1)
+
+    axios.delete(baseUrl + inquilinoId).then((response) => {
+      response.status === 200 ? (
+        setCurrentItems(newInquilinos),
+      ) : (
+        alert("NO FUNCIONA")
+      )
+    });
+  }
   
   console.log(data)
   return (
@@ -33,31 +54,21 @@ function TableInquilinos(props) {
       <STable>
         <STHead>
           <STHeadTR>
-            {["#", ...keys].map((item, index) => (
-              <STH key={index}>
-                {item}
-              </STH>
-            ))}
+            <STH>#</STH>
+            <STH>Edificio</STH>
+            <STH>Propietario</STH>
+            <STH>Piso</STH>
+            <STH>Departamento</STH>
             <STH>Acciones</STH>
           </STHeadTR>
         </STHead>
         <STBody>
-          {currentItems.map((obj, index) => (
-            <STBodyTR key={index}>
-              <STD>
-                {index + 1}
-              </STD>
-              {keys.map((item, index) => {
-                const value = obj[item];
-                return (
-                <STD key={index}>
-                  {value}
-                </STD>
-                );
-              })}
-              <BsPencilSquare style={{ color: "#416AF9",fontSize: "25px", marginRight: "10px", cursor: "pointer" }} />
-              <BsTrashFill style={{ color: "#ff0000", fontSize: "25px", cursor: "pointer" }}/>
-            </STBodyTR>
+          {currentItems.map((inquilino, index) => (
+            <ReadOnlyRow
+              inquilino={inquilino}
+              index={index}
+              handleDeleteClick={handleDeleteClick}
+            />
           ))}
         </STBody>
       </STable>
