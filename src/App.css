@@ -52,3 +52,26 @@ body {
   text-decoration: none;
   color: inherit;
 }
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.errmsg {
+  background-color: rgb(241, 197, 204);
+  text-align: center;
+  color: firebrick;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 1.0rem;
+  white-space: normal;
+}
+
+
+.error {
+	color: #e92b2d;
+	font-weight: 600;
+	font-size: 14px;
+}
