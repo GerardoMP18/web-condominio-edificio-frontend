@@ -11,7 +11,9 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const baseUrl = 'http://127.0.0.1:5000/api/condominiums/'
+import Swal from 'sweetalert2';
+
+const baseUrl = 'http://127.0.0.1:5012/api/condominiums/'
 
 export function CrearEdificio() {
   const Title = styled.h6`
@@ -24,6 +26,22 @@ export function CrearEdificio() {
 
 /* editContactId tiene el ID de el condominio que voy a agregar un edificio */
   const [editContactId, setEditContactId] = useState(null);
+
+  /* expresiones regulares de correo y telefono*/
+  const isEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+	const isPhone = /[9][0-9]{1,8}/;
+
+  /* estados que almacenan los mensaje de errores a mostrar */
+  const [errMsgCondominio, setErrMsgCondominio] = useState('');
+	const [errMsgNombre, setErrMsgNombre] = useState('');
+	const [errMsgRuc, setErrMsgRuc] = useState('');
+	const [errMsgPhone, setErrMsgPhone] = useState('');
+	const [errMsgEmail, setErrMsgEmail] = useState('');
+	const [errMsgDes, setErrMsgDes] = useState('');
+	const [errMsgFloor, setErrMsgFloor] = useState('');
+	const [errMsgAddress, setErrMsgAddress] = useState('');
+
+  const [seleccionar, setSeleccionar] = useState(false);
 
   const [consolaSelecionada, SetconsolaSelecionada] = useState({
     id_condominium: "",
@@ -38,6 +56,26 @@ export function CrearEdificio() {
     user_updated: "",
   });
 
+  /* useEffect que realiza la limpieza de errores */
+  useEffect(() => {
+		setErrMsgCondominio('');
+		setErrMsgNombre('');
+		setErrMsgRuc('');
+		setErrMsgPhone('');
+		setErrMsgEmail('');
+		setErrMsgDes('');
+		setErrMsgFloor('');
+		setErrMsgAddress('');
+	}, [consolaSelecionada.id_condominium,
+	consolaSelecionada.name_building,
+	consolaSelecionada.ruc,
+	consolaSelecionada.phone,
+	consolaSelecionada.email,
+	consolaSelecionada.description,
+	consolaSelecionada.floor,
+	consolaSelecionada.address
+])
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetconsolaSelecionada((prevState) => ({
@@ -50,16 +88,94 @@ export function CrearEdificio() {
     console.log("este es mi json" + consolaSelecionada);
   };
 
-  /*consolaSelecionada.map((items, index) => {
-    console.log("este es mi map " + items);
-  });*/
+  const validate = () => {
+		let helper = [];
 
-  const postPetition = async () => {
-    await axios.post(baseUrl + editContactId + "/buildings", consolaSelecionada).then((response) => {
-      setData(data.concat(response.data));
-    });
+		if (seleccionar === false) {
+			setErrMsgCondominio("Favor de seleccionar nombre de condominio")
+		} else {
+			helper.push(consolaSelecionada.id_condominium);
+		}
+		if (!consolaSelecionada.name_building) {
+			setErrMsgNombre("Favor de ingresar nombre de edificio")
+		} else {
+			helper.push(consolaSelecionada.name_building);
+		}
+		/* validacion de ruc */
+		if (!consolaSelecionada.ruc) {
+			setErrMsgRuc("Favor de ingresar numero de ruc")
+		} else if (!(consolaSelecionada.ruc >= 1e10 && consolaSelecionada.ruc < 11e9
+			|| consolaSelecionada.ruc >= 15e9 && consolaSelecionada.ruc < 18e9
+			|| consolaSelecionada.ruc >= 2e10 && consolaSelecionada.ruc < 21e9)) {
+			setErrMsgRuc("Ruc invalido");
+		} else {
+			helper.push(consolaSelecionada.ruc);
+		}
+
+		/* validacion de celular */
+		if (!consolaSelecionada.phone) {
+			setErrMsgPhone("Favor de ingresar numero de celular")
+		} else if (consolaSelecionada.phone.length !== 9) {
+			setErrMsgPhone("Numero de celular tiene que ser 9 digitos")
+		} else if (!isPhone.test(consolaSelecionada.phone)) {
+			setErrMsgPhone("Numero de celular invalido")
+		} else {
+			helper.push(consolaSelecionada.phone);
+		}
+
+		/* validacion de correo */
+		if (!consolaSelecionada.email) {
+			setErrMsgEmail("Favor de ingresar correo electronico")
+		} else if (!isEmail.test(consolaSelecionada.email)) {
+			setErrMsgEmail("Correo invalido")
+		} else {
+			helper.push(consolaSelecionada.email);
+		}
+
+		if (!consolaSelecionada.floor) {
+			setErrMsgFloor("Favor de ingresar numero de pisos")
+		} else if (consolaSelecionada.floor <= 0) {
+			setErrMsgFloor("Numero debe ser mayor de 0")
+		} else {
+			helper.push(consolaSelecionada.floor);
+		}
+
+		if (!consolaSelecionada.address) {
+			setErrMsgAddress("Favor de ingrese nombre de direccion")
+		} else {
+			helper.push(consolaSelecionada.address);
+		}
+
+    /* validacion de descripcion */
+		if (consolaSelecionada.description.length > 250) {
+			setErrMsgDes("Solo se acepta 250 caracteres en descripcion")
+		} else {
+      if (helper.length === 7) {
+        return true
+      }
+    }
+		
+	}
+
+  const postPetition = async (e) => {
+    e.preventDefault();
+    if (validate() === true) {
+      await axios.post(baseUrl + editContactId + "/buildings", consolaSelecionada).then((response) => {
+        if (response.status === 201) {
+					Swal.fire({
+						title: 'Exito',
+						text: 'Se registro correctamente',
+						icon: 'success',
+						confirmButtonText: 'Aceptar'
+					})
+				}
+      });
+    }
+    
   };
-
+  const cambiarEstadoSelect = () => {
+    setSeleccionar('true')
+  }
 /* State contiene a todos los condominios en una lista para mostrar en el desplegable */
   const [state, setState] = useState([]);
   useEffect(() => {
@@ -73,7 +189,7 @@ export function CrearEdificio() {
 
   /* funcion que retorna todos los conodominios por el metodo GET al desplegable*/
   const componentDidCondominium = () => {
-    axios.get("http://127.0.0.1:5000/api/condominiums").then((response) => {
+    axios.get("http://127.0.0.1:5012/api/condominiums").then((response) => {
       setState(response.data)
     })
   }
@@ -101,7 +217,8 @@ export function CrearEdificio() {
           		    labelId="demo-simple-select-helper-label"
           		    id="demo-simple-select-helper"
           		    label="Condominio"
-			    name="id_condominium"
+			            name="id_condominium"
+                  onChange={cambiarEstadoSelect}
 		            onClick={componentDidCondominium}
 		          >
 		            {state.map(elemento=>(
@@ -109,7 +226,7 @@ export function CrearEdificio() {
 			    )
 			    )}
         		  </Select>
-        		  <FormHelperText>Selecciona un Condominio</FormHelperText>
+              { seleccionar ? <div></div> : <div className="error">{errMsgCondominio}</div>}
       			</FormControl>
                       </Grid>
 
@@ -128,6 +245,7 @@ export function CrearEdificio() {
                           helperText="Ingrese nombre del Edificio"
 		          onChange={handleChange}
                         />
+                        <div className="error">{errMsgNombre}</div>
                       </Grid>
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -144,6 +262,7 @@ export function CrearEdificio() {
                           helperText="Ruc del Condominio"
                           onChange={handleChange}
                         />
+                        <div className="error">{errMsgRuc}</div>
                       </Grid>
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -160,6 +279,7 @@ export function CrearEdificio() {
                           helperText="phone"
                           onChange={handleChange}
                         />
+                        <div className="error">{errMsgPhone}</div>
                       </Grid>
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -176,6 +296,7 @@ export function CrearEdificio() {
                           helperText="email"
                           onChange={handleChange}
                         />
+                        <div className="error">{errMsgEmail}</div>
                       </Grid>
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -192,6 +313,7 @@ export function CrearEdificio() {
                           helperText="opcional"
                           onChange={handleChange}
                         />
+                        <div className="error">{errMsgDes}</div>
                       </Grid>
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -208,6 +330,7 @@ export function CrearEdificio() {
                           helperText="Numero de pisos"
                           onChange={handleChange}
                         />
+                        <div className="error">{errMsgFloor}</div>
                       </Grid>
 
                       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -224,6 +347,7 @@ export function CrearEdificio() {
                           helperText="address"
                           onChange={handleChange}
                         />
+                        <div className="error">{errMsgAddress}</div>
                       </Grid>
                     </Grid>
 
@@ -259,7 +383,7 @@ export function E2() {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch("http://127.0.0.1:5000/api/buildings");
+    const response = await fetch("http://127.0.0.1:5012/api/buildings");
     const data = await response.json();
     setEdificios(data);
   };

@@ -39,7 +39,7 @@ const Login = () => {
 			console.log("API TEST")
 			console.log(user);
 			console.log(password);
-			await fetch("http://127.0.0.1:5011/api/login", {
+			await fetch("http://127.0.0.1:5013/api/login", {
 				method: "POST",
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
@@ -57,15 +57,6 @@ const Login = () => {
 					}
 					return response.json();
 				})
-				// .then((result) => {
-				// 	console.log(result);
-				// 	if (result.email === user && result.password === password) {
-				// 		console.log("ENTRO")
-				// 		setUser('');
-				// 		setPassword('');
-				// 		setSuccess(true);
-				// 	}
-				// })
 		}
 	}
 	return (
