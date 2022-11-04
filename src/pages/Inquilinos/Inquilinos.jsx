@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TableInquilinos from "../../components/Tables/TableInquilinos/TableInquilinos";
 import { Grid, TextField, Box, Card, CardContent, Button } from "@mui/material";
 import axios from "axios";
@@ -16,6 +16,15 @@ export function CrearInquilino() {
     padding-top: 30px;
     padding-bottom: 30px;
   `;
+
+  /* referencia direct al input para cambiar a null*/
+  const textNombre = useRef(null);
+  const textApellido = useRef(null);
+  const textDni = useRef(null);
+  const textEmail = useRef(null);
+  const textPwd = useRef(null);
+  const textCelular = useRef(null);
+  const textFecha = useRef(null);
 
   /*expresiones regulares para validacion de celular y correo */
   const isPhone = /[9][0-9]{1,8}/;
@@ -160,6 +169,13 @@ export function CrearInquilino() {
             icon: 'success',
             confirmButtonText: 'Aceptar'
           })
+          textNombre.current.value = "";
+          textApellido.current.value = "";
+          textDni.current.value = "";
+          textEmail.current.value = "";
+          textPwd.current.value = "";
+          textCelular.current.value = "";
+          textFecha.current.value = "";
         }
       });
     }
@@ -193,6 +209,7 @@ export function CrearInquilino() {
                           name="first_name"
                           margin="dense"
                           fullWidth
+                          inputRef={textNombre}
                           variant="outlined"
                           placeholder="Ingrese nombre de inquilino"
                           onChange={handleChange}
@@ -211,6 +228,7 @@ export function CrearInquilino() {
                           name="last_name"
                           margin="dense"
                           fullWidth
+                          inputRef={textApellido}
                           variant="outlined"
                           placeholder="Ingrese apellidos de inquilino"
                           onChange={handleChange}
@@ -229,6 +247,7 @@ export function CrearInquilino() {
                           name="number_document"
                           margin="dense"
                           fullWidth
+                          inputRef={textDni}
                           variant="outlined"
                           placeholder="Ingrese numero de documento"
                           onChange={handleChange}
@@ -247,6 +266,7 @@ export function CrearInquilino() {
                           name="email"
                           margin="dense"
                           fullWidth
+                          inputRef={textEmail}
                           variant="outlined"
                           placeholder="Ingrese correo electronico"
                           onChange={handleChange}
@@ -265,6 +285,7 @@ export function CrearInquilino() {
                           name="password"
                           margin="dense"
                           fullWidth
+                          inputRef={textPwd}
                           variant="outlined"
                           placeholder="Ingrese contraseña"
                           onChange={handleChange}
@@ -283,6 +304,7 @@ export function CrearInquilino() {
                           name="phone"
                           margin="dense"
                           fullWidth
+                          inputRef={textCelular}
                           variant="outlined"
                           placeholder="Ingrese numero de celular"
                           onChange={handleChange}
@@ -301,6 +323,7 @@ export function CrearInquilino() {
                           name="birth_date"
                           margin="dense"
                           fullWidth
+                          inputRef={textFecha}
                           variant="outlined"
                           onChange={handleChange}
                         />
