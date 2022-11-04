@@ -4,8 +4,9 @@ import Navigation from "../../Navigation/Navigation.jsx";
 import { BsPencilSquare, BsTrashFill } from "react-icons/bs";
 import ReadOnlyRow from "./ReadOnlyRow";
 import axios from "axios";
+import Swal from 'sweetalert2';
 
-const baseUrl = "http://127.0.0.1:5000/api/users/";
+const baseUrl = "http://127.0.0.1:5010/api/users/";
 
 function TableInquilinos(props) {
   const { data } = props;
@@ -40,8 +41,19 @@ function TableInquilinos(props) {
     axios.delete(baseUrl + inquilinoId).then((response) => {
       response.status === 200 ? (
         setCurrentItems(newInquilinos),
+        Swal.fire({
+          title: 'Exito',
+          text: 'Se Elimino correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }) 
       ) : (
-        alert("NO FUNCIONA")
+        Swal.fire({
+          title: 'Fallo',
+          text: 'Fallo en Eliminar',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        })
       )
     });
   }

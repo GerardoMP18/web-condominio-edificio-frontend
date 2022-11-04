@@ -5,8 +5,9 @@ import { BsPencilSquare, BsTrashFill } from "react-icons/bs";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
 import axios from "axios";
+import Swal from 'sweetalert2';
 
-const baseUrl = "http://127.0.0.1:5000/api/condominiums/";
+const baseUrl = "http://127.0.0.1:5012/api/condominiums/";
 
 function TableCondominiums(props) {
   const { data } = props;
@@ -79,9 +80,20 @@ function TableCondominiums(props) {
 
     axios.put(baseUrl + editContactId, editFormData).then((response) => {
       response.status === 200 ? (
-	setCurrentItems(newCondominiums),
+	      setCurrentItems(newCondominiums),
+        Swal.fire({
+          title: 'Exito',
+          text: 'Se Actualizo correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }) 
       ) : (
-        alert("NO FUNCIONA")
+        Swal.fire({
+          title: 'Fallo',
+          text: 'Fallo en actualizar',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        })
       )
     });
     setEditContactId(null);
@@ -121,8 +133,19 @@ function TableCondominiums(props) {
     axios.delete(baseUrl + condominiumId).then((response) => {
       response.status === 200 ? (
         setCurrentItems(newCondominiums),
+        Swal.fire({
+          title: 'Exito',
+          text: 'Se Elimino correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        })
       ) : (
-        alert("NO FUNCIONA")
+        Swal.fire({
+          title: 'Fallo',
+          text: 'Fallo en eliminar',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        })
       )
     });
   }
@@ -179,4 +202,3 @@ function TableCondominiums(props) {
 }
 
 export default TableCondominiums;
-
