@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TableCondominiums from "../../components/Tables/TableCondominiums/TableCondominiums";
 import { Grid, TextField, Box, Card, CardContent, Button } from "@mui/material";
 import axios from "axios";
@@ -6,7 +6,7 @@ import { Formik } from "formik";
 import styled from "styled-components";
 import Swal from 'sweetalert2';
 
-const baseUrl = "http://127.0.0.1:5012/api/condominiums";
+const baseUrl = "http://127.0.0.1:5014/api/condominiums";
 
 export function CrearCondominio() {
   const Title = styled.h6`
@@ -21,6 +21,13 @@ export function CrearCondominio() {
   const isLandile = /^[0][1]\d{7}$/;
   const isEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
+  const textCondominio = useRef(null);
+  const textRuc = useRef(null);
+  const textCelular = useRef(null);
+  const textCorreo = useRef(null);
+  const textDireccion = useRef(null);
+  const textTelefono = useRef(null);
+  const textDescription = useRef(null);
   /*Almacenar mensaje de errores*/
   const [errMsgName, setErrMsgName] = useState('');
   const [errMsgRuc, setErrMsgRuc] = useState('');
@@ -137,7 +144,7 @@ export function CrearCondominio() {
 
   const postPetition = async (e) => {
     e.preventDefault();
-
+    
     if (validate() === true) {
       await axios.post(baseUrl, consolaSelecionada).then((response) => {
         // setData(data.concat(response.data))
@@ -149,6 +156,14 @@ export function CrearCondominio() {
             icon: 'success',
             confirmButtonText: 'Aceptar'
           })
+          textCondominio.current.value = "";
+          textRuc.current.value = "";
+          textCelular.current.value = "";
+          textCorreo.current.value = "";
+          textCondominio.current.value = "";
+          textDireccion.current.value = "";
+          textTelefono.current.value = "";
+          textDescription.current.value = "";
         }
       });
     }
@@ -180,7 +195,9 @@ export function CrearCondominio() {
                           type="text"
                           name="name"
                           margin="dense"
+                          inputRef={textCondominio}
                           fullWidth
+                          placeholder="Ingrese nombre de condominio"
                           variant="outlined"
                           onChange={handleChange}
                         />
@@ -196,7 +213,9 @@ export function CrearCondominio() {
                           type="number"
                           name="ruc"
                           margin="dense"
+                          inputRef={textRuc}
                           fullWidth
+                          placeholder="Ingrese numero de ruc"
                           variant="outlined"
                           onChange={handleChange}
                         />
@@ -211,7 +230,9 @@ export function CrearCondominio() {
                           type="number"
                           name="phone"
                           margin="dense"
+                          inputRef={textCelular}
                           fullWidth
+                          placeholder="Ingrese numero de celular"
                           variant="outlined"
                           onChange={handleChange}
                         />
@@ -227,7 +248,9 @@ export function CrearCondominio() {
                           type="text"
                           name="email"
                           margin="dense"
+                          inputRef={textCorreo}
                           fullWidth
+                          placeholder="Ingrese correo electronico"
                           variant="outlined"
                           onChange={handleChange}
                         />
@@ -243,7 +266,9 @@ export function CrearCondominio() {
                           type="text"
                           name="address"
                           margin="dense"
+                          inputRef={textDireccion}
                           fullWidth
+                          placeholder="Ingrese direccion"
                           variant="outlined"
                           onChange={handleChange}
                         />
@@ -259,7 +284,9 @@ export function CrearCondominio() {
                           type="number"
                           name="landline"
                           margin="dense"
+                          inputRef={textTelefono}
                           fullWidth
+                          placeholder="Ingrese telefono fijo"
                           variant="outlined"
                           onChange={handleChange}
                         />
@@ -274,8 +301,10 @@ export function CrearCondominio() {
                           type="text"
                           name="description"
                           margin="dense"
+                          inputRef={textDescription}
                           fullWidth
                           variant="outlined"
+                          placeholder="Ingrese descripcion"
                           helperText="Opcional"
                           onChange={handleChange}
                         />
@@ -315,7 +344,7 @@ export function C2() {
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch("http://127.0.0.1:5012/api/condominiums");
+    const response = await fetch("http://127.0.0.1:5014/api/condominiums");
     const data = await response.json();
     setCondominiums(data);
   };
