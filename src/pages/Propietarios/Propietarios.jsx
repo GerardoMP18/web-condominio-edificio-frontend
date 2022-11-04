@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TablePropietarios from "../../components/Tables/TablePropietarios/TablePropietarios";
 import { Grid, TextField, Box, Card, CardContent, Button } from "@mui/material";
 import axios from "axios";
@@ -16,6 +16,16 @@ export function CrearPropietario() {
     padding-top: 30px;
     padding-bottom: 30px;
   `;
+
+  /* referencia direct al input para cambiar a null*/
+  const textNombre = useRef(null);
+  const textApellido = useRef(null);
+  const textDni = useRef(null);
+  const textEmail = useRef(null);
+  const textPwd = useRef(null);
+  const textCelular = useRef(null);
+  const textFecha = useRef(null);
+
 
   /*expresiones regulares para validacion de celular y correo */
   const isPhone = /[9][0-9]{1,8}/;
@@ -57,19 +67,19 @@ export function CrearPropietario() {
 
   /*hook para poder recargar y limpiar los mensaje de errores */
   useEffect(() => {
-		setErrMsgNombre('');
-		setErrMsgApellido('');
-		setErrMsgDocument('');
-		setErrMsgCorreo('');
-		setErrMsgContraseña('');
-		setErrMsgCelular('');
+    setErrMsgNombre('');
+    setErrMsgApellido('');
+    setErrMsgDocument('');
+    setErrMsgCorreo('');
+    setErrMsgContraseña('');
+    setErrMsgCelular('');
     setErrMsgFecha('');
-	}, [consolaSelecionada.first_name,
-	consolaSelecionada.last_name,
-	consolaSelecionada.number_document,
-	consolaSelecionada.email,
-	consolaSelecionada.password,
-	consolaSelecionada.phone,
+  }, [consolaSelecionada.first_name,
+  consolaSelecionada.last_name,
+  consolaSelecionada.number_document,
+  consolaSelecionada.email,
+  consolaSelecionada.password,
+  consolaSelecionada.phone,
   consolaSelecionada.birth_date])
 
   const handleChange = (e) => {
@@ -82,53 +92,53 @@ export function CrearPropietario() {
   };
 
   const validate = () => {
-		let helper = [];
+    let helper = [];
 
-		if (!consolaSelecionada.first_name) {
-			setErrMsgNombre("Favor de ingresar nombre")
-		} else if (!isLetras.test(consolaSelecionada.first_name)) {
+    if (!consolaSelecionada.first_name) {
+      setErrMsgNombre("Favor de ingresar nombre")
+    } else if (!isLetras.test(consolaSelecionada.first_name)) {
       setErrMsgNombre("Solo esta permitido ingresar letras")
-    }else {
-			helper.push(consolaSelecionada.first_name);
-		}
+    } else {
+      helper.push(consolaSelecionada.first_name);
+    }
 
-		if (!consolaSelecionada.last_name) {
-			setErrMsgApellido("Favor de ingresar apellidos")
-		} else if (!isLetras.test(consolaSelecionada.last_name)) {
+    if (!consolaSelecionada.last_name) {
+      setErrMsgApellido("Favor de ingresar apellidos")
+    } else if (!isLetras.test(consolaSelecionada.last_name)) {
       setErrMsgApellido("Solo esta permitido ingresar letras")
     } else {
-			helper.push(consolaSelecionada.last_name);
-		}
+      helper.push(consolaSelecionada.last_name);
+    }
 
-		if (!consolaSelecionada.number_document) {
-			setErrMsgDocument("Favor de ingresar numero de dni")
-		} else if (!isDni.test(consolaSelecionada.number_document)) {
-        setErrMsgDocument("Numero de dni tiene que ser de 8 digitos")
-    }else {
-			helper.push(consolaSelecionada.number_document);
-		}
+    if (!consolaSelecionada.number_document) {
+      setErrMsgDocument("Favor de ingresar numero de dni")
+    } else if (!isDni.test(consolaSelecionada.number_document)) {
+      setErrMsgDocument("Numero de dni tiene que ser de 8 digitos")
+    } else {
+      helper.push(consolaSelecionada.number_document);
+    }
 
-		if (!consolaSelecionada.password) {
-			setErrMsgContraseña("Favor de ingresar contraseña")
-		} else if (!isvalidoPassword.test(consolaSelecionada.password)) {
+    if (!consolaSelecionada.password) {
+      setErrMsgContraseña("Favor de ingresar contraseña")
+    } else if (!isvalidoPassword.test(consolaSelecionada.password)) {
       let textoErro = "Contraseña debe tener minimo 8 caracteres, maximo 15, al menos una letra mayuscula," +
-                      " al menos una letra minuscula, al menos un numero, no espacios en blanco " +
-                      "y al menos 1 caracter especial"
+        " al menos una letra minuscula, al menos un numero, no espacios en blanco " +
+        "y al menos 1 caracter especial"
       setErrMsgContraseña(textoErro);
     } else {
       helper.push(consolaSelecionada.password);
     }
 
-		if (!consolaSelecionada.email) {
-			setErrMsgCorreo("Favor de ingresar correo electronico")
-		} else if (!isEmail.test(consolaSelecionada.email)) {
-			setErrMsgCorreo("Correo invalido")
-		} else {
-			helper.push(consolaSelecionada.email);
-		}
+    if (!consolaSelecionada.email) {
+      setErrMsgCorreo("Favor de ingresar correo electronico")
+    } else if (!isEmail.test(consolaSelecionada.email)) {
+      setErrMsgCorreo("Correo invalido")
+    } else {
+      helper.push(consolaSelecionada.email);
+    }
 
-		/* validacion de descripcion */
-		if (!consolaSelecionada.phone) {
+    /* validacion de descripcion */
+    if (!consolaSelecionada.phone) {
       setErrMsgCelular("Favor de ingresar numero de celular")
     } else if (consolaSelecionada.phone.length !== 9) {
       setErrMsgCelular("Numero de celular tiene que ser 9 digitos")
@@ -144,13 +154,14 @@ export function CrearPropietario() {
       helper.push(consolaSelecionada.birth_date)
     }
 
-		if (helper.length === 7) {
-			return true
-		}
-	}
+    if (helper.length === 7) {
+      return true
+    }
+  }
 
   const postPetition = async (e) => {
     e.preventDefault();
+    
     if (validate() === true) {
       await axios.post(baseUrl, consolaSelecionada).then((response) => {
         if (response.status === 201) {
@@ -159,11 +170,18 @@ export function CrearPropietario() {
             text: 'Se registro correctamente',
             icon: 'success',
             confirmButtonText: 'Aceptar'
-          })    
+          })
+          textNombre.current.value = "";
+          textApellido.current.value = "";
+          textDni.current.value = "";
+          textEmail.current.value = "";
+          textPwd.current.value = "";
+          textCelular.current.value = "";
+          textFecha.current.value = "";
         }
       });
     }
-    
+
   };
 
   return (
@@ -193,6 +211,7 @@ export function CrearPropietario() {
                           name="first_name"
                           margin="dense"
                           fullWidth
+                          inputRef={textNombre}
                           variant="outlined"
                           placeholder="Ingrese nombre de propietario"
                           onChange={handleChange}
@@ -211,6 +230,7 @@ export function CrearPropietario() {
                           name="last_name"
                           margin="dense"
                           fullWidth
+                          inputRef={textApellido}
                           variant="outlined"
                           placeholder="Ingrese apellidos de propietario"
                           onChange={handleChange}
@@ -229,6 +249,7 @@ export function CrearPropietario() {
                           name="number_document"
                           margin="dense"
                           fullWidth
+                          inputRef={textDni}
                           variant="outlined"
                           placeholder="Ingrese numero de documento"
                           onChange={handleChange}
@@ -247,6 +268,7 @@ export function CrearPropietario() {
                           name="email"
                           margin="dense"
                           fullWidth
+                          inputRef={textEmail}
                           variant="outlined"
                           placeholder="Ingrese correo electronico"
                           onChange={handleChange}
@@ -265,6 +287,7 @@ export function CrearPropietario() {
                           name="password"
                           margin="dense"
                           fullWidth
+                          inputRef={textPwd}
                           variant="outlined"
                           placeholder="Ingrese contraseña"
                           onChange={handleChange}
@@ -283,6 +306,7 @@ export function CrearPropietario() {
                           name="phone"
                           margin="dense"
                           fullWidth
+                          inputRef={textCelular}
                           variant="outlined"
                           placeholder="Ingrese numero de celular"
                           onChange={handleChange}
@@ -301,6 +325,7 @@ export function CrearPropietario() {
                           name="birth_date"
                           margin="dense"
                           fullWidth
+                          inputRef={textFecha}
                           variant="outlined"
                           onChange={handleChange}
                         />
